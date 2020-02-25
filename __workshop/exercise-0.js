@@ -35,13 +35,20 @@ compareToTen(8)
 
 const arrayOfWords = ['cucumber', 'tomatos', 'avocado']
 const complicatedArray = ['cucumber', 44, true]
-  
+
 const makeAllCaps = (array) => {
-    
+    let arrayPromise = new Promise((resolve, reject) => {
+        if (array.every(string=>{return typeof string === "string"})){
+            resolve(array.map(word=>{return word.toUpperCase()}))
+        } else { reject(array + 'contains non-string values')}
+    })
+    return arrayPromise;
 }
 
+
+// makeAllCaps(['err', 'TrtrS', 'ere']).then((x)=>{console.log('promise',x)})
 const sortWords = (array) => {
-    
+    return array.sort();
 } 
 
 // Calling (testing)
